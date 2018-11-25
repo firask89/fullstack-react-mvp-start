@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body  >
+<div id="myDIV" class="header">
+<form action ="/todos" method ="post">
+    <h1 class="header" >Things to do </h1>
+    <input type ="text" name ="content" placeholder="Todo...">
+    <button class="addBtn" type ="submit">Add Tasks</button>
+</form> 
+</div>
+<ul >
+    {{#todos}}
+    {{! loop to display content }}
+    <li>
+    {{! pass the id dynamicly }}
+    <form action ="/todos/{{_id}}/deleted" method ="post">
+    {{content}}     <button class='delbtn' type="submit"> Delete</button>
+    </form> 
+     </li>
+
+    {{/todos}}
+</ul>
+</body>
+</html>
